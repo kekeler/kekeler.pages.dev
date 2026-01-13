@@ -55,6 +55,18 @@ btn.addEventListener("click", () => {
 </body>
 </html>
 
+<div class="counter">
+  👁️ <span id="visit-count"></span> ziyaret
+</div>
+
+<script async src="https://api.countapi.xyz/hit/kekeler.github.io/visits?callback=cb"></script>
+<script>
+function cb(response) {
+  document.getElementById("visit-count").innerText = response.value;
+}
+</script>
+
+
 
 
 
