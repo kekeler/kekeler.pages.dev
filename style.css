@@ -15,7 +15,7 @@ body {
     color: white;
 }
 
-/* KART */
+/* PROFİL KART */
 .card {
     background: rgba(0, 0, 0, 0.55);
     backdrop-filter: blur(10px);
@@ -24,10 +24,10 @@ body {
     text-align: center;
     width: 90%;
     max-width: 320px;
-    animation: fadeIn 1.2s ease;
+    animation: fadeIn 1s ease;
 }
 
-/* PROFİL */
+/* PROFİL FOTO */
 .avatar {
     width: 110px;
     height: 110px;
@@ -48,7 +48,7 @@ p {
     margin-bottom: 20px;
 }
 
-/* SOSYAL */
+/* SOSYAL MEDYA */
 .links {
     display: flex;
     justify-content: center;
@@ -57,7 +57,7 @@ p {
 
 .links img {
     width: 40px;
-    transition: 0.3s;
+    transition: transform 0.3s;
 }
 
 .links img:hover {
@@ -69,7 +69,7 @@ p {
     position: fixed;
     bottom: 20px;
     left: 20px;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0,0,0,0.6);
     border: none;
     color: white;
     font-size: 20px;
