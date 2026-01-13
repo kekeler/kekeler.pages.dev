@@ -3,26 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kekeler</title>
+    <title>kekeler</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- MÜZİK -->
-    <audio id="bgMusic" loop>
-        <source src="music.mp3" type="audio/mpeg">
-    </audio>
+    <!-- ARKA PLAN MÜZİĞİ -->
+    <audio id="bgMusic" src="music.mp3" loop></audio>
 
-    <!-- MÜZİK BUTONU -->
+    <!-- MÜZİK AÇ / KAPA -->
     <button id="musicBtn">🔊</button>
 
-    <!-- KART -->
+    <!-- PROFİL KARTI -->
     <div class="card">
-        <img src="pp.jpg" class="avatar">
+        <img src="pp.jpg" class="avatar" alt="Profil Foto">
         <h1>@kekeler</h1>
         <p>developer • chaos enjoyer</p>
 
-        <!-- SOSYAL MEDYA -->
         <div class="links">
             <a href="https://instagram.com" target="_blank">
                 <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png">
@@ -40,18 +37,18 @@
     <script>
         const music = document.getElementById("bgMusic");
         const btn = document.getElementById("musicBtn");
-        let playing = false;
 
-        btn.onclick = () => {
-            if (!playing) {
-                music.play();
-                btn.textContent = "🔇";
+        btn.addEventListener("click", () => {
+            if (music.paused) {
+                music.volume = 0.5;
+                music.play()
+                    .then(() => btn.textContent = "🔇")
+                    .catch(err => console.log("Müzik hatası:", err));
             } else {
                 music.pause();
                 btn.textContent = "🔊";
             }
-            playing = !playing;
-        };
+        });
     </script>
 
 </body>
