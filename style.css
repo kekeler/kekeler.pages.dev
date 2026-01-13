@@ -38,3 +38,26 @@ body {
 .links a:hover {
     background: #333;
 }
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: fadeIn 1.2s ease;
+}
+
+.avatar {
+    transition: 0.3s;
+}
+
+.avatar:hover {
+    transform: scale(1.05);
+}
