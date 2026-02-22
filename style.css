@@ -8,54 +8,54 @@
 body{
   height:100vh;
   background:url("bg.jpg") center/cover no-repeat;
-  overflow:hidden;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 
-.overlay{
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.7);
+/* ORTADAKİ PANEL */
+.panel{
+  width:80%;
+  height:70%;
+  background:rgba(0,0,0,0.65);
+  backdrop-filter:blur(10px);
+  border-radius:20px;
   display:flex;
   color:white;
+  box-shadow:0 0 40px rgba(255,0,0,0.4);
 }
 
-/* SOL TARAF */
-
+/* SOL */
 .left{
   width:40%;
-  padding:60px;
+  padding:50px;
   border-right:2px solid rgba(255,0,0,0.3);
 }
 
-.big-text{
-  font-size:90px;
-  line-height:80px;
-  color:white;
-  opacity:0.9;
+.left h1{
+  font-size:80px;
+  line-height:70px;
 }
 
-.server{
+.discord-btn{
+  display:inline-block;
   margin-top:40px;
-}
-
-.server a{
-  color:white;
-  text-decoration:none;
   padding:12px 20px;
   background:red;
+  color:white;
+  text-decoration:none;
   border-radius:10px;
   transition:0.3s;
 }
 
-.server a:hover{
+.discord-btn:hover{
   background:#ff4d4d;
 }
 
-/* SAĞ TARAF */
-
+/* SAĞ */
 .right{
   width:60%;
-  padding:60px;
+  padding:50px;
   position:relative;
 }
 
@@ -72,37 +72,10 @@ body{
   border:3px solid red;
 }
 
-.profile h2{
-  font-size:28px;
-}
-
-.profile p{
-  opacity:0.7;
-}
-
-.social{
-  margin-top:20px;
-}
-
-.social a{
-  margin-right:15px;
-  color:white;
-  text-decoration:none;
-  opacity:0.7;
-  transition:0.3s;
-}
-
-.social a:hover{
-  opacity:1;
-  color:red;
-}
-
-/* MUSIC */
-
 .music-box{
   position:absolute;
-  bottom:60px;
-  right:60px;
+  bottom:50px;
+  right:50px;
   width:300px;
 }
 
@@ -117,7 +90,6 @@ body{
   height:100%;
   width:0%;
   background:red;
-  transition:0.1s;
 }
 
 .controls button{
