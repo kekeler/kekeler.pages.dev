@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Melis 💖</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Segoe UI', sans-serif;
+    background: 
+        linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+        url("arkaplan.jpg") no-repeat center center;
+    background-size: cover;
+    overflow: hidden;
+    color: white;
+}
+
+.container {
+    padding: 20px;
+    position: relative;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+button {
+    padding: 14px 28px;
+    font-size: 18px;
+    border: none;
+    border-radius: 30px;
+    margin: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#yesBtn {
+    background: white;
+    color: #ff4d88;
+    font-weight: bold;
+}
+
+#yesBtn:active {
+    transform: scale(0.95);
+}
+
+#noBtn {
+    background: #333;
+    color: white;
+    position: absolute;
+}
+
+#surprise {
+    display: none;
+    margin-top: 25px;
+    font-size: 20px;
+    animation: fadeIn 1.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+.heart {
+    position: fixed;
+    font-size: 22px;
+    animation: floatUp 4s linear infinite;
+}
+
+@keyframes floatUp {
+    0% {transform: translateY(100vh); opacity: 0;}
+    50% {opacity: 1;}
+    100% {transform: translateY(-10vh); opacity: 0;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Melis 💕<br>Bugün bir meleğin doğum günü mü? 🎂</h1>
+
+    <button id="yesBtn">Evet aşkım 💖</button>
+    <button id="noBtn">Hayır 😜</button>
+
+    <div id="surprise">
+        🎉 İYİ Kİ DOĞDUN MELİS 🎉 <br><br>
+        Sen hayatımın en güzel hikayesisin... <br>
+        Gözlerin en sevdiğim manzara 🌹 <br>
+        İyi ki varsın, iyi ki benimlesin 💕 <br><br>
+        Seni sonsuza kadar seveceğim 💍
+    </div>
+</div>
+
+<audio id="bgMusic" loop>
+    <!-- BURAYA MÜZİK LİNKİ KOYACAKSIN -->
+    <source src="muzik.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const noBtn = document.getElementById("noBtn");
+const yesBtn = document.getElementById("yesBtn");
+const surprise = document.getElementById("surprise");
+const music = document.getElementById("bgMusic");
+
+noBtn.addEventListener("touchstart", moveButton);
+noBtn.addEventListener("mouseover", moveButton);
+
+function moveButton() {
+    const maxX = window.innerWidth - noBtn.offsetWidth;
+    const maxY = window.innerHeight - noBtn.offsetHeight;
+
+    const randomX = Math.floor(Math.random() * maxX);
+    const randomY = Math.floor(Math.random() * maxY);
+
+    noBtn.style.left = randomX + "px";
+    noBtn.style.top = randomY + "px";
+}
+
+yesBtn.addEventListener("click", () => {
+    surprise.style.display = "block";
+    music.play();
+    createHearts();
+});
+
+function createHearts() {
+    for (let i = 0; i < 25; i++) {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "💖";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 4000);
+    }
+}
+</script>
+
+</body>
+</html>
