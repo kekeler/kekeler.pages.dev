@@ -1,126 +1,135 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, Helvetica, sans-serif;
 }
 
-body {
-  height: 100vh;
-  background: url("bg.jpg") center/cover no-repeat;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
+body{
+  height:100vh;
+  background:url("bg.jpg") center/cover no-repeat;
+  overflow:hidden;
 }
 
-body::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backdrop-filter: blur(8px);
-  background: rgba(0,0,0,0.6);
+.overlay{
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.7);
+  display:flex;
+  color:white;
 }
 
-.card {
-  position: relative;
-  background: rgba(0,0,0,0.7);
-  padding: 35px;
-  border-radius: 20px;
-  text-align: center;
-  color: white;
-  width: 350px;
-  backdrop-filter: blur(15px);
-  animation: fadeIn 1s ease forwards;
-  transform-style: preserve-3d;
-  transition: transform 0.15s ease;
-  box-shadow: 0 0 40px rgba(255,0,0,0.4);
+/* SOL TARAF */
+
+.left{
+  width:40%;
+  padding:60px;
+  border-right:2px solid rgba(255,0,0,0.3);
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
+.big-text{
+  font-size:90px;
+  line-height:80px;
+  color:white;
+  opacity:0.9;
 }
 
-.avatar {
-  width: 110px;
-  height: 110px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 15px;
-  border: 3px solid red;
-  box-shadow: 0 0 15px red;
+.server{
+  margin-top:40px;
 }
 
-.bio {
-  opacity: 0.8;
-  margin-bottom: 15px;
+.server a{
+  color:white;
+  text-decoration:none;
+  padding:12px 20px;
+  background:red;
+  border-radius:10px;
+  transition:0.3s;
 }
 
-.progress-container {
-  width: 100%;
-  height: 6px;
-  background: rgba(255,255,255,0.2);
-  border-radius: 5px;
-  overflow: hidden;
-  margin-top: 10px;
+.server a:hover{
+  background:#ff4d4d;
 }
 
-#progress {
-  height: 100%;
-  width: 0%;
-  background: linear-gradient(90deg, #ff0000, #ff4d4d);
-  transition: width 0.1s linear;
+/* SAĞ TARAF */
+
+.right{
+  width:60%;
+  padding:60px;
+  position:relative;
 }
 
-.time {
-  display: flex;
-  justify-content: space-between;
-  font-size: 12px;
-  opacity: 0.7;
-  margin-top: 5px;
+.profile{
+  display:flex;
+  align-items:center;
+  gap:20px;
 }
 
-.controls {
-  margin-top: 10px;
+.profile img{
+  width:90px;
+  height:90px;
+  border-radius:50%;
+  border:3px solid red;
 }
 
-.controls button {
-  background: rgba(255,0,0,0.8);
-  border: none;
-  color: white;
-  padding: 8px 12px;
-  margin: 5px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 0.3s;
+.profile h2{
+  font-size:28px;
 }
 
-.controls button:hover {
-  background: red;
-  box-shadow: 0 0 10px red;
+.profile p{
+  opacity:0.7;
 }
 
-.links {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 20px;
+.social{
+  margin-top:20px;
 }
 
-.links img {
-  width: 35px;
-  transition: 0.3s;
+.social a{
+  margin-right:15px;
+  color:white;
+  text-decoration:none;
+  opacity:0.7;
+  transition:0.3s;
 }
 
-.links img:hover {
-  transform: scale(1.2);
-  filter: drop-shadow(0 0 6px red);
+.social a:hover{
+  opacity:1;
+  color:red;
 }
 
-.counter {
-  margin-top: 20px;
-  font-size: 13px;
-  opacity: 0.7;
+/* MUSIC */
+
+.music-box{
+  position:absolute;
+  bottom:60px;
+  right:60px;
+  width:300px;
+}
+
+.progress-container{
+  width:100%;
+  height:6px;
+  background:rgba(255,255,255,0.2);
+  margin:10px 0;
+}
+
+#progress{
+  height:100%;
+  width:0%;
+  background:red;
+  transition:0.1s;
+}
+
+.controls button{
+  background:red;
+  border:none;
+  color:white;
+  padding:8px 12px;
+  margin-right:5px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.controls button:hover{
+  background:#ff4d4d;
 }
