@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Melis 💖</title>
-
 <style>
 * {
     margin: 0;
@@ -12,39 +11,45 @@
     box-sizing: border-box;
 }
 
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
 body {
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
     font-family: 'Segoe UI', sans-serif;
-    background: 
-        linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-        url("arkaplan.jpg") no-repeat center center;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+                url("arkaplan.jpg") no-repeat center center;
     background-size: cover;
     overflow: hidden;
     color: white;
+    text-align: center;
 }
 
 .container {
-    padding: 20px;
+    padding: 5vw;
+    width: 90vw;
+    max-width: 500px;
     position: relative;
 }
 
 h1 {
-    font-size: 24px;
-    margin-bottom: 30px;
+    font-size: clamp(1.5rem, 6vw, 2.5rem); /* min 1.5rem, max 2.5rem */
+    margin-bottom: 5vw;
 }
 
 button {
-    padding: 14px 28px;
-    font-size: 18px;
+    padding: clamp(0.8rem, 3vw, 1.5rem) clamp(1.5rem, 6vw, 3rem);
+    font-size: clamp(1rem, 4vw, 1.5rem);
     border: none;
-    border-radius: 30px;
-    margin: 10px;
+    border-radius: 50px;
+    margin: 2vw;
     cursor: pointer;
-    transition: 0.3s;
+    transition: all 0.3s ease;
+    position: relative;
 }
 
 #yesBtn {
@@ -65,19 +70,19 @@ button {
 
 #surprise {
     display: none;
-    margin-top: 25px;
-    font-size: 20px;
+    margin-top: 5vw;
+    font-size: clamp(1rem, 4vw, 1.5rem);
     animation: fadeIn 1.5s ease forwards;
 }
 
 @keyframes fadeIn {
-    from {opacity: 0; transform: translateY(20px);}
+    from {opacity: 0; transform: translateY(2vw);}
     to {opacity: 1; transform: translateY(0);}
 }
 
 .heart {
     position: fixed;
-    font-size: 22px;
+    font-size: clamp(1.5rem, 5vw, 3rem);
     animation: floatUp 4s linear infinite;
 }
 
@@ -107,7 +112,6 @@ button {
 </div>
 
 <audio id="bgMusic" loop>
-    <!-- BURAYA MÜZİK LİNKİ KOYACAKSIN -->
     <source src="muzik.mp3" type="audio/mpeg">
 </audio>
 
@@ -154,5 +158,4 @@ function createHearts() {
 </script>
 
 </body>
-
 </html>
