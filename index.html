@@ -12,45 +12,44 @@
   <source src="music.mp3" type="audio/mpeg">
 </audio>
 
-<div class="overlay">
+<div class="container">
 
-  <!-- SOL -->
-  <div class="left">
-    <h1 class="big-text">PRO-<br>FIL</h1>
+  <div class="panel">
 
-    <div class="server">
-      <a href="https://discord.gg/projectroleplay">Discord Sunucum</a>
-    </div>
-  </div>
+    <!-- SOL -->
+    <div class="left">
+      <h1>PRO-<br>FIL</h1>
 
-  <!-- SAĞ -->
-  <div class="right">
-
-    <div class="profile">
-      <img src="pp.jpg">
-      <div>
-        <h2>@kekeler</h2>
-        <p>New Developer & 𝒦enanツ</p>
-      </div>
+      <a class="discord-btn" href="https://discord.gg/projectroleplay">
+        Discord Sunucu
+      </a>
     </div>
 
-    <div class="social">
-      <a href="https://instagram.com/kenan.cme">Instagram</a>
-      <a href="https://github.com/kekeler">GitHub</a>
-    </div>
+    <!-- SAĞ -->
+    <div class="right">
 
-    <div class="music-box">
-      <h3>Music</h3>
-
-      <div class="progress-container">
-        <div id="progress"></div>
+      <div class="profile">
+        <img src="pp.jpg">
+        <div>
+          <h2>@kekeler</h2>
+          <p>New Developer & Kenanツ</p>
+        </div>
       </div>
 
-      <div class="controls">
-        <button onclick="prev()">⏮</button>
-        <button onclick="playPause()">▶</button>
-        <button onclick="next()">⏭</button>
+      <div class="music-box">
+        <h3>Music</h3>
+
+        <div class="progress-container">
+          <div id="progress"></div>
+        </div>
+
+        <div class="controls">
+          <button onclick="prev()">⏮</button>
+          <button onclick="playPause()">▶</button>
+          <button onclick="next()">⏭</button>
+        </div>
       </div>
+
     </div>
 
   </div>
@@ -85,4 +84,3 @@ music.addEventListener("timeupdate", ()=>{
 
 </body>
 </html>
-
