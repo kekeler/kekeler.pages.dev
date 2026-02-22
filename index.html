@@ -1,109 +1,88 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <title>kekeler</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kekeler</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<audio id="bgMusic" preload="auto">
+<audio id="music">
   <source src="music.mp3" type="audio/mpeg">
 </audio>
 
-<div class="card">
-  <img src="pp.jpg" class="avatar">
-  <h1>@kekeler</h1>
-  <p class="bio">• New Developer & 𝒦enanツ</p>
+<div class="overlay">
 
-  <div class="player">
-    <div class="progress-container">
-      <div id="progress"></div>
-    </div>
+  <!-- SOL -->
+  <div class="left">
+    <h1 class="big-text">PRO-<br>FIL</h1>
 
-    <div class="time">
-      <span id="current">0:00</span>
-      <span id="duration">0:00</span>
-    </div>
-
-    <div class="controls">
-      <button id="prev">⏮</button>
-      <button id="play">▶</button>
-      <button id="next">⏭</button>
+    <div class="server">
+      <a href="https://discord.gg/projectroleplay">Discord Sunucum</a>
     </div>
   </div>
 
-  <div class="links">
-    <a href="https://www.instagram.com/kenan.cme/" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png">
-    </a>
-    <a href="https://discord.gg/projectroleplay" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png">
-    </a>
-    <a href="https://github.com/kekeler" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png">
-    </a>
+  <!-- SAĞ -->
+  <div class="right">
+
+    <div class="profile">
+      <img src="pp.jpg">
+      <div>
+        <h2>@kekeler</h2>
+        <p>New Developer & 𝒦enanツ</p>
+      </div>
+    </div>
+
+    <div class="social">
+      <a href="https://instagram.com/kenan.cme">Instagram</a>
+      <a href="https://github.com/kekeler">GitHub</a>
+    </div>
+
+    <div class="music-box">
+      <h3>Music</h3>
+
+      <div class="progress-container">
+        <div id="progress"></div>
+      </div>
+
+      <div class="controls">
+        <button onclick="prev()">⏮</button>
+        <button onclick="playPause()">▶</button>
+        <button onclick="next()">⏭</button>
+      </div>
+    </div>
+
   </div>
 
-  <div class="counter">
-    👁️ <span id="visit-count">0</span> Profile Views
-  </div>
 </div>
 
-<script async src="https://api.countapi.xyz/hit/kekeler.github.io/visits?callback=visit"></script>
 <script>
-function visit(res) {
-  document.getElementById("visit-count").innerText = res.value;
-}
-
-const music = document.getElementById("bgMusic");
-const playBtn = document.getElementById("play");
-const prevBtn = document.getElementById("prev");
-const nextBtn = document.getElementById("next");
+const music = document.getElementById("music");
 const progress = document.getElementById("progress");
-const current = document.getElementById("current");
-const duration = document.getElementById("duration");
-const card = document.querySelector(".card");
 
-playBtn.onclick = () => {
-  if (music.paused) {
+function playPause(){
+  if(music.paused){
     music.play();
-    playBtn.textContent = "⏸";
   } else {
     music.pause();
-    playBtn.textContent = "▶";
   }
-};
-
-prevBtn.onclick = () => {
-  music.currentTime = 0;
-};
-
-nextBtn.onclick = () => {
-  music.currentTime = music.duration;
-};
-
-music.addEventListener("timeupdate", () => {
-  const percent = (music.currentTime / music.duration) * 100;
-  progress.style.width = percent + "%";
-  current.textContent = formatTime(music.currentTime);
-  duration.textContent = formatTime(music.duration);
-});
-
-function formatTime(time) {
-  if (isNaN(time)) return "0:00";
-  const min = Math.floor(time / 60);
-  const sec = Math.floor(time % 60).toString().padStart(2, "0");
-  return `${min}:${sec}`;
 }
 
-document.addEventListener("mousemove", (e) => {
-  const x = (window.innerWidth / 2 - e.clientX) / 35;
-  const y = (window.innerHeight / 2 - e.clientY) / 35;
-  card.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
+function prev(){
+  music.currentTime = 0;
+}
+
+function next(){
+  music.currentTime = music.duration;
+}
+
+music.addEventListener("timeupdate", ()=>{
+  const percent = (music.currentTime / music.duration) * 100;
+  progress.style.width = percent + "%";
 });
 </script>
 
 </body>
 </html>
+
