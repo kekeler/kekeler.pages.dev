@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kişisel Kart</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+  /* Genel stil */
+  body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(120deg, #89f7fe, #66a6ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    perspective: 1000px;
+    overflow: hidden;
+  }
+
+  /* Kart */
+  .card {
+    width: 350px;
+    background: rgba(255,255,255,0.95);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease;
+  }
+
+  /* Profil bölümü */
+  .profile {
+    text-align: center;
+  }
+  .profile img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #1DB954;
+  }
+  .profile h2 {
+    margin: 10px 0 5px;
+  }
+  .profile a {
+    color: #1DB954;
+    text-decoration: none;
+  }
+
+  /* Bölümler */
+  .section {
+    margin: 20px 0;
+    text-align: center;
+  }
+  .section h3 {
+    margin-bottom: 10px;
+  }
+
+  /* Oyun ve araç ikonları */
+  .icons i {
+    font-size: 24px;
+    margin: 0 8px;
+    color: #333;
+  }
+
+  /* Müzik çalar */
+  .music-player audio {
+    width: 100%;
+    outline: none;
+    border-radius: 10px;
+  }
+</style>
+</head>
+<body>
+
+<div class="card" id="card">
+
+  <!-- Profil -->
+  <div class="profile">
+    <img src="profil.jpg" alt="Profil Foto">
+    <h2>Adın Soyadın</h2>
+    <a href="https://open.spotify.com/user/spotifyid" target="_blank"><i class="fa-brands fa-spotify"></i> Spotify</a>
+  </div>
+
+  <!-- Oynadığı oyunlar -->
+  <div class="section">
+    <h3>Oynadığı Oyunlar</h3>
+    <div class="icons">
+      <i class="fa-solid fa-crosshairs" title="Valorant"></i>
+      <i class="fa-solid fa-cube" title="Minecraft"></i>
+      <i class="fa-solid fa-skull-crossbones" title="CS:GO"></i>
+    </div>
+  </div>
+
+  <!-- Kullandığı araçlar -->
+  <div class="section">
+    <h3>Kullandığı Araçlar</h3>
+    <div class="icons">
+      <i class="fa-brands fa-js-square" title="JavaScript"></i>
+      <i class="fa-brands fa-git-alt" title="Git"></i>
+      <i class="fa-solid fa-code" title="VS Code"></i>
+    </div>
+  </div>
+
+  <!-- Müzik çalar -->
+  <div class="section music-player">
+    <h3>Müzik Seçici</h3>
+    <audio controls>
+      <source src="muzik.mp3" type="audio/mp3">
+      Tarayıcınız audio etiketini desteklemiyor.
+    </audio>
+  </div>
+
+</div>
+
+<script>
+  // Kart fare hareketi ile dönme efekti
+  const card = document.getElementById('card');
+
+  document.addEventListener('mousemove', e => {
+    const xAxis = (window.innerWidth/2 - e.pageX) / 25;
+    const yAxis = (window.innerHeight/2 - e.pageY) / 25;
+    card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+  });
+
+  document.addEventListener('mouseleave', () => {
+    card.style.transform = `rotateY(0deg) rotateX(0deg)`;
+  });
+</script>
+
+</body>
+</html>
