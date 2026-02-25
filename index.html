@@ -4,132 +4,164 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kişisel Kart</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+
 <style>
-  body {
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    perspective: 1000px;
-    background: #000;
-  }
 
-  /* Video arka plan */
-  #bg-video {
-    position: fixed;
-    top:0; left:0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-    pointer-events: none;
-  }
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  perspective: 1000px;
+  background: #000;
+}
 
-  /* Kart */
-  .card {
-    width: 550px;
-    max-width: 95%;
-    background: rgba(0,0,0,0.85);
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-    transform-style: preserve-3d;
-    transition: transform 0.1s ease;
-    color: white;
-    position: relative;
-    z-index: 1;
-    text-align: center;
-  }
+/* Video arka plan */
+#bg-video {
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:-1;
+  pointer-events:none;
+}
 
-  .profile img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #1DB954;
-  }
+/* Kart */
+.card {
+  width: 620px;
+  max-width: 95%;
+  background: rgba(0,0,0,0.85);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease;
+  color: white;
+  text-align:center;
+}
 
-  .profile h2 {
-    margin: 10px 0 5px;
-  }
+/* Profil */
+.profile img {
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  object-fit:cover;
+  border:3px solid #1DB954;
+}
 
-  .profile a {
-    color: #1DB954;
-    text-decoration: none;
-  }
+.profile h2 {
+  margin:10px 0 5px;
+}
 
-  .section {
-    margin: 20px 0;
-  }
+.profile a {
+  color:#1DB954;
+  text-decoration:none;
+}
 
-  .icons i {
-    font-size: 28px;
-    margin: 0 10px;
-    color: #1DB954;
-    cursor: pointer;
-    transition: transform 0.2s;
-  }
+/* Bölümler */
+.section {
+  margin:20px 0;
+}
 
-  .icons i:hover {
-    transform: scale(1.3);
-  }
+/* Sosyal ikonlar */
+.icons i {
+  font-size:28px;
+  margin:0 10px;
+  color:#1DB954;
+  transition:0.2s;
+}
 
-  /* Spotify embed */
-  .music-player iframe {
-    border-radius: 10px;
-  }
+.icons i:hover {
+  transform:scale(1.3);
+}
 
-<!-- Video arka plan -->
+/* Spotify */
+.music-player iframe {
+  border-radius:10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Video Background -->
 <video autoplay muted loop id="bg-video">
   <source src="background.mp4" type="video/mp4">
-  Tarayıcınız video etiketini desteklemiyor.
 </video>
 
 <div class="card" id="card">
+
   <div class="profile">
-    <img src="profil.jpg" alt="Profil Foto">
+    <img src="profil.jpg" alt="Profil">
     <h2>Kekeler</h2>
-    <a href="https://open.spotify.com/user/76n9vpyrojmo82kbn29fmyi3e?si=5fc3badb2e464777" target="_blank"><i class="fa-brands fa-spotify"></i> Spotify</a>
+
+    <a href="https://open.spotify.com/user/76n9vpyrojmo82kbn29fmyi3e"
+    target="_blank">
+    <i class="fa-brands fa-spotify"></i> Spotify
+    </a>
   </div>
 
   <div class="section">
     <h3>Sosyal</h3>
+
     <div class="icons">
-      <a href="https://discord.gg/9swkKVRrC8" target="_blank"><i class="fa-brands fa-discord" title="Discord"></i></a>
-      <a href="https://github.com/kekeler" target="_blank"><i class="fa-brands fa-github" title="GitHub"></i></a>
-      <a href="https://instagram.com/kenan.cme" target="_blank"><i class="fa-brands fa-instagram" title="Instagram"></i></a>
+      <a href="https://discord.gg/9swkKVRrC8" target="_blank">
+        <i class="fa-brands fa-discord"></i>
+      </a>
+
+      <a href="https://github.com/kekeler" target="_blank">
+        <i class="fa-brands fa-github"></i>
+      </a>
+
+      <a href="https://instagram.com/kenan.cme" target="_blank">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
     </div>
   </div>
 
   <div class="section music-player">
     <h3>Müzik</h3>
-    <!-- Spotify embed -->
-    <iframe 
-      src="https://open.spotify.com/embed/track/7eJMfftS33KTjuF7lTsMCx?si=72ff40c13b294e8c?utm_source=generator&theme=0" 
-      width="100%" 
-      height="80" 
-      frameborder="0" 
-      allowtransparency="true" 
-      allow="encrypted-media; clipboard-write; fullscreen; picture-in-picture"
-    ></iframe>
+
+    <iframe
+      src="https://open.spotify.com/embed/track/7eJMfftS33KTjuF7lTsMCx"
+      width="100%"
+      height="80"
+      frameborder="0"
+      allow="encrypted-media">
+    </iframe>
+
   </div>
 
+</div>
+
 <script>
-  // Kart fare hareketi ile dönme efekti
-  const card = document.getElementById('card');
-  document.addEventListener('mousemove', e => {
-    const xAxis = (window.innerWidth/2 - e.pageX) / 25;
-    const yAxis = (window.innerHeight/2 - e.pageY) / 25;
-    card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
-  });
-  document.addEventListener('mouseleave', () => {
-    card.style.transform = `rotateY(0deg) rotateX(0deg)`;
-  });
+
+/* Kart mouse efekti */
+const card = document.getElementById("card");
+
+document.addEventListener("mousemove",(e)=>{
+  const xAxis=(window.innerWidth/2-e.pageX)/25;
+  const yAxis=(window.innerHeight/2-e.pageY)/25;
+
+  card.style.transform=
+  `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+});
+
+document.addEventListener("mouseleave",()=>{
+  card.style.transform=
+  "rotateY(0deg) rotateX(0deg)";
+});
+
 </script>
 
 </body>
