@@ -7,11 +7,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style>
-  /* Genel stil */
   body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(120deg, #89f7fe, #66a6ff);
+    /* GitHub'daki arka plan dosyasını kullanacağız */
+    background: url('background.jpg') no-repeat center center fixed;
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,18 +21,19 @@
     overflow: hidden;
   }
 
-  /* Kart */
+  /* Kart - biraz daha yatay yapıyoruz */
   .card {
-    width: 350px;
-    background: rgba(255,255,255,0.95);
+    width: 450px;  /* yatay genişlik arttı */
+    max-width: 90%;
+    background: rgba(0,0,0,0.95);
     border-radius: 20px;
-    padding: 20px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+    padding: 25px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
     transform-style: preserve-3d;
     transition: transform 0.1s ease;
+    color: white;
   }
 
-  /* Profil bölümü */
   .profile {
     text-align: center;
   }
@@ -50,7 +52,6 @@
     text-decoration: none;
   }
 
-  /* Bölümler */
   .section {
     margin: 20px 0;
     text-align: center;
@@ -59,14 +60,17 @@
     margin-bottom: 10px;
   }
 
-  /* Oyun ve araç ikonları */
   .icons i {
-    font-size: 24px;
-    margin: 0 8px;
-    color: #333;
+    font-size: 28px;
+    margin: 0 10px;
+    color: #1DB954;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  .icons i:hover {
+    transform: scale(1.3);
   }
 
-  /* Müzik çalar */
   .music-player audio {
     width: 100%;
     outline: none;
@@ -77,58 +81,42 @@
 <body>
 
 <div class="card" id="card">
-
-  <!-- Profil -->
   <div class="profile">
     <img src="profil.jpg" alt="Profil Foto">
     <h2>Adın Soyadın</h2>
     <a href="https://open.spotify.com/user/spotifyid" target="_blank"><i class="fa-brands fa-spotify"></i> Spotify</a>
   </div>
 
-  <!-- Oynadığı oyunlar -->
   <div class="section">
-    <h3>Oynadığı Oyunlar</h3>
+    <h3>Sosyal</h3>
     <div class="icons">
-      <i class="fa-solid fa-crosshairs" title="Valorant"></i>
-      <i class="fa-solid fa-cube" title="Minecraft"></i>
-      <i class="fa-solid fa-skull-crossbones" title="CS:GO"></i>
+      <a href="https://discord.com/users/discordid" target="_blank"><i class="fa-brands fa-discord" title="Discord"></i></a>
+      <a href="https://github.com/kullaniciadi" target="_blank"><i class="fa-brands fa-github" title="GitHub"></i></a>
+      <a href="https://twitter.com/kullaniciadi" target="_blank"><i class="fa-brands fa-twitter" title="Twitter"></i></a>
     </div>
   </div>
 
-  <!-- Kullandığı araçlar -->
-  <div class="section">
-    <h3>Kullandığı Araçlar</h3>
-    <div class="icons">
-      <i class="fa-brands fa-js-square" title="JavaScript"></i>
-      <i class="fa-brands fa-git-alt" title="Git"></i>
-      <i class="fa-solid fa-code" title="VS Code"></i>
-    </div>
-  </div>
-
-  <!-- Müzik çalar -->
   <div class="section music-player">
-    <h3>Müzik Seçici</h3>
+    <h3>Müzik</h3>
     <audio controls>
-      <source src="muzik.mp3" type="audio/mp3">
+      <source src="muzik.mp3" type="audio/mpeg">
       Tarayıcınız audio etiketini desteklemiyor.
     </audio>
   </div>
-
 </div>
 
 <script>
-  // Kart fare hareketi ile dönme efekti
-  const card = document.getElementById('card');
+const card = document.getElementById('card');
 
-  document.addEventListener('mousemove', e => {
-    const xAxis = (window.innerWidth/2 - e.pageX) / 25;
-    const yAxis = (window.innerHeight/2 - e.pageY) / 25;
-    card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
-  });
+document.addEventListener('mousemove', e => {
+  const xAxis = (window.innerWidth/2 - e.pageX) / 25;
+  const yAxis = (window.innerHeight/2 - e.pageY) / 25;
+  card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+});
 
-  document.addEventListener('mouseleave', () => {
-    card.style.transform = `rotateY(0deg) rotateX(0deg)`;
-  });
+document.addEventListener('mouseleave', () => {
+  card.style.transform = `rotateY(0deg) rotateX(0deg)`;
+});
 </script>
 
 </body>
