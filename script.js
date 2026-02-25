@@ -1,7 +1,10 @@
-function clock(){
-let date = new Date();
-document.getElementById("time").innerHTML =
-date.toLocaleTimeString();
-}
+document.querySelectorAll(".socials span")
+.forEach(e=>{
+e.addEventListener("mouseover",()=>{
+e.style.boxShadow="0 0 15px white";
+});
 
-setInterval(clock,1000);
+e.addEventListener("mouseout",()=>{
+e.style.boxShadow="none";
+});
+});
